@@ -1,0 +1,31 @@
+{
+  "name": "wellness-dimensions-charts",
+  "version": "1.0.0",
+  "description": "some useful charts",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ralelyunas/wellness-dimensions-charts.git"
+  },
+  "keywords": [
+    "chart"
+  ],
+  "author": "RobAlelyunas@yahoo.com",
+  "license": "GPL3",
+  "bugs": {
+    "url": "https://github.com/ralelyunas/wellness-dimensions-charts/issues"
+  },
+  "homepage": "https://github.com/ralelyunas/wellness-dimensions-charts#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.8.6"
+  }
+}
