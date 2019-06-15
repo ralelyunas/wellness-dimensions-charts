@@ -1,3 +1,3 @@
-import TargetChart from './TargetChart'
+import StackedTargetChart from './StackedTargetChart'
 
-export { TargetChart }
+export { StackedTargetChart }
