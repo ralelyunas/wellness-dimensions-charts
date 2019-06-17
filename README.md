@@ -4,8 +4,7 @@ Some custom useful charts implemented in svg as react components.
 
 ## Gallery
 
-[Interactive gallery of charts][gallery-link]
-[gallery-link]: https://ralelyunas.github.io/wellness-dimensions-charts/
+https://ralelyunas.github.io/wellness-dimensions-charts/
 
 ## How to use
 
