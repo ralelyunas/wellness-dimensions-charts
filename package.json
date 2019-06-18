@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "build-dev": "NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+    "build-dev": "nodemon --watch src/ -x \"NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__\""
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,16 @@
     "url": "https://github.com/ralelyunas/wellness-dimensions-charts/issues"
   },
   "homepage": "https://github.com/ralelyunas/wellness-dimensions-charts#readme",
-  "dependencies": {},
+  "dependencies": {
+    "d3-color": "^1.2.3",
+    "shortid": "^2.2.14"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "nodemon": "^1.19.1",
     "react": "^16.8.6"
   }
 }
