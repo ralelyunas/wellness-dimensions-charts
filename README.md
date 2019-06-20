@@ -17,12 +17,12 @@ import { StackedTargetChart } from 'wellness-dimensions-charts'
   width={350}
   target={5}
   overflowAreaCount={0}
-  overflowStyle = {"hidden"}
-  categoryCaption = {"Aerobic Workouts"}
-  timePeriodCaption = {"Week of Sept 4, 2019"}
-  timestampFormat = {"dddd, h:MM tt"}
-  stackItems = {[{event: "Swimming", timestamp: now()}, {event: "Running", timestamp: now()}]}
-  bgColor = {"#88aa00"}
-  stackItemColor = {"#346f4d"} />
+  overflowStyle={"hidden"}
+  categoryCaption={"Aerobic Workouts"}
+  timePeriodCaption={"Week of Sept 4, 2019"}
+  timestampFormat={"dddd, h:MM tt"}
+  stackItems={[{event: "Swimming", timestamp: now()}, {event: "Running", timestamp: now()}]}
+  bgColor={"#88aa00"}
+  stackItemColor={"#346f4d"} />
 
 ```
