@@ -1,12 +1,12 @@
 {
   "name": "wellness-dimensions-charts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "some useful charts",
   "main": "dist/index.js",
   "scripts": {
     "test": "",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "build-dev": "nodemon --watch src/ -x \"NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__\""
+    "dev-build": "nodemon --watch src/ -x \"NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ralelyunas/wellness-dimensions-charts#readme",
   "dependencies": {
     "d3-color": "^1.2.3",
+    "dateformat": "^3.0.3",
     "shortid": "^2.2.14"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { color } from 'd3-color'
 import shortid from 'shortid'
+import dateFormat from 'dateformat'
 
 const Text = ({
   size = 12,
@@ -92,20 +93,18 @@ const StackItem = ({
   )
 }
 
-const SVG = ({
-  width = 200,
+const StackedTargetChart = ({
+  width = 350,
   target = 5,
-  overflow = 0,
-  categoryCaption = "Aerobic Workouts",
-  timePeriodCaption = "Week of Sept 4, 2019",
-  stackItems = [
-    {event: "Swimming", timestamp: "Saturday 4:30 pm"},
-    {event: "Swimming", timestamp: "Saturday 4:30 pm"},
-    {event: "Swimming", timestamp: "Saturday 4:30 pm"},
-    {event: "Swimming", timestamp: "Saturday 4:30 pm"}
-  ],
-  targetColor = "#88aa00",
-  itemColor = "#346f4d"
+  overflowAreaCount = 0,
+  overflowStyle = "hidden",
+  categoryCaption = "",
+  timePeriodCaption = "",
+  timestampFormat = "dddd, h:MM tt",
+  stackItems = [],
+  bgColor = "#88aa00",
+  stackItemColor = "#346f4d",
+  style = {}
 }) => {
   const stackItemWidth = width * 0.90
   const stackItemHeight = stackItemWidth * 0.25
@@ -114,9 +113,9 @@ const SVG = ({
   const timePeriodTextBoxHeight = stackItemHeight * 0.5
   const stackItemTopMargin = 0.1 * stackItemHeight
   const targetBoxHeight = (stackItemHeight + stackItemTopMargin) * target + categoryTextBoxHeight + stackItemTopMargin
-  const overflowAreaHeight = (stackItemHeight + stackItemTopMargin) * overflow
+  const overflowAreaHeight = (stackItemHeight + stackItemTopMargin) * overflowAreaCount
   const height = targetBoxHeight + timePeriodTextBoxHeight + overflowAreaHeight
-  const colors = { target: color(targetColor), item: color(itemColor) }
+  const colors = { bgColor: color(bgColor), stackItemColor: color(stackItemColor) }
   const gradientId = shortid.generate()
   for (var i=0;i<stackItems.length;i++) {
     if (!stackItems[i]["id"]) stackItems[i]["id"] = shortid.generate()
@@ -126,7 +125,7 @@ const SVG = ({
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    viewBox={ "0 0 " + width + " " + height }
-   style={{ width: width + "px", height: height + "px", border: "3px solid blue" }}>
+   style={{ height: height + "px", ...style, width: width + "px", overflow: overflowStyle }}>
   <defs>
     <linearGradient
        gradientUnits="userSpaceOnUse"
@@ -137,7 +136,7 @@ const SVG = ({
        id={gradientId}>
     <stop
        offset="0"
-       style={{ stopColor: colors.target.toString(), stopOpacity: "1" }} />
+       style={{ stopColor: colors.bgColor.toString(), stopOpacity: "1" }} />
     <stop
        offset="1"
        style={{ stopColor: "#444", stopOpacity: "0" }} /> />
@@ -159,7 +158,7 @@ const SVG = ({
       text={target}
       center={true} /> 
     <Text
-      fgcolor={colors.item.darker(1)} 
+      fgcolor={colors.stackItemColor.darker(1)} 
       x={width * 0.5}
       y={overflowAreaHeight + targetBoxHeight - (categoryTextBoxHeight * 0.3)}
       size={categoryTextBoxHeight * 0.45}
@@ -179,12 +178,12 @@ const SVG = ({
          key={ item.id }
          width={ stackItemWidth }
          height={ stackItemHeight }
-         bgcolor={ colors.item }
+         bgcolor={ colors.stackItemColor }
          eventCaption={ item.event }
-         timestampCaption={ item.timestamp } />
+         timestampCaption={ dateFormat(item.timestamp, timestampFormat) } />
     ))}
   </g>
 </svg>
 )}
 
-export default SVG
+export default StackedTargetChart

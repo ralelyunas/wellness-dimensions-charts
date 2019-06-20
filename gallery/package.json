@@ -1,10 +1,11 @@
 {
-  "name": "wellness-dimensions",
+  "name": "wellness-dimensions-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
     "react-scripts": "3.0.1",
     "wellness-dimensions-charts": "file:../"
   },
